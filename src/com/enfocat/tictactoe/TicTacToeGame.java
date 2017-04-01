@@ -11,14 +11,14 @@ public class TicTacToeGame {
 
 		// view:
 		VisualInterface view = new TicTacToeSwing();
-		//VisualInterface view = new TicTacToeConsole();
-		
+		// VisualInterface view = new TicTacToeConsole();
+
 		// controller:
 		GameController controller = new GameController(view, model);
-		
+
 		// connect view controller
 		view.setController(controller);
-		
+
 		// start to show the view:
 		view.start();
 	}

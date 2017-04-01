@@ -121,20 +121,12 @@ public class TicTacToeSwing extends JFrame implements VisualInterface {
 
 	@Override
 	public void congrats(String name) {
-		this.lableThree.setText("Congratulations!!! " + name + " wins!!!");
-		for (JButton btn : this.buttons) {
-			btn.setEnabled(false);
-		}
-		this.flagTheEnd = true;
+		this.finalActions("Congratulations!!! " + name + " wins!!!");
 	}
 
 	@Override
 	public void finalWords() {
-		this.lableThree.setText("The game  is over! Nobody wins...");
-		for (JButton btn : this.buttons) {
-			btn.setEnabled(false);
-		}
-		this.flagTheEnd = true;
+		this.finalActions("The game  is over! Nobody wins...");
 	}
 
 	@Override
@@ -148,9 +140,9 @@ public class TicTacToeSwing extends JFrame implements VisualInterface {
 		lableThree.setVisible(true);
 		setMinimumSize(new Dimension(490, 600));
 		setLocationRelativeTo(null);
-		for (JButton btn : this.buttons) {			
+		for (JButton btn : this.buttons) {
 			btn.setEnabled(true);
-			btn.setVisible(true);			
+			btn.setVisible(true);
 		}
 		this.flagTheEnd = false;
 	}
@@ -174,7 +166,7 @@ public class TicTacToeSwing extends JFrame implements VisualInterface {
 	@Override
 	public void draw(GameBoard map) {
 		for (int i = 0; i < map.length(); i++) {
-			this.buttons[i].setText(map.getSymbolAt(i));					
+			this.buttons[i].setText(map.getSymbolAt(i));
 		}
 	}
 
@@ -185,18 +177,26 @@ public class TicTacToeSwing extends JFrame implements VisualInterface {
 		for (int i = 0; i < 9; i++) {
 			JButton btn = new JButton("");
 			btn.setActionCommand(String.valueOf(i + 1));
-			btn.setBounds(positionX, positionY, TicTacToeSwing.SIZE_OF_BUTTON, TicTacToeSwing.SIZE_OF_BUTTON);
+			btn.setBounds(positionX, positionY, SIZE_OF_BUTTON, SIZE_OF_BUTTON);
 			btn.setBackground(Color.WHITE);
 			btn.setVisible(false);
 			btn.setFont(new Font("Tahoma", Font.BOLD, 72));
 			this.buttons[i] = btn;
 			getContentPane().add(this.buttons[i]);
-			positionX += TicTacToeSwing.SIZE_OF_BUTTON;
+			positionX += SIZE_OF_BUTTON;
 			if (i % 3 == 2) {
 				positionX = 50;
-				positionY += TicTacToeSwing.SIZE_OF_BUTTON;
+				positionY += SIZE_OF_BUTTON;
 			}
 		}
+	}
+
+	private void finalActions(String text) {
+		this.lableThree.setText(text);
+		for (JButton btn : this.buttons) {
+			btn.setEnabled(false);
+		}
+		this.flagTheEnd = true;
 	}
 
 }

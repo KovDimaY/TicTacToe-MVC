@@ -25,11 +25,11 @@ public class GameBoard {
 		this.clearTable();
 	}
 
-	//returns length of the map
-	public int length(){
+	// returns length of the map
+	public int length() {
 		return this.map.length;
 	}
-	
+
 	// put the given value to the given position
 	public void setValue(int pos, int val) {
 		if (pos >= 0 && pos < this.map.length) {
@@ -70,18 +70,18 @@ public class GameBoard {
 	}
 
 	// copies values of the map from the other board
-	public void setCopyOf(GameBoard table){
-		for(int i = 0; i < this.map.length; i++){
+	public void setCopyOf(GameBoard table) {
+		for (int i = 0; i < this.map.length; i++) {
 			this.map[i] = table.getValueAt(i);
 		}
 	}
-	
+
 	// returns the value at the given position
- 	public int getValueAt(int position) {
+	public int getValueAt(int position) {
 		return this.map[position];
 	}
 
- 	// returns the symbol at the given position
+	// returns the symbol at the given position
 	public String getSymbolAt(int position) {
 		if (this.map[position] == 1) {
 			return "X";
@@ -128,5 +128,5 @@ public class GameBoard {
 		}
 		return result;
 	}
-	
+
 }
